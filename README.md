@@ -31,7 +31,7 @@ El sistema maneja la persistencia y la lógica de negocio a través de las sigui
 
 ## ⚙️ Lógica de Servidor (Server Actions)
 
-Este proyecto utiliza **Next.js Server Actions** para gestionar la base de datos de forma segura. No se utiliza una carpeta `/api` tradicional; en su lugar, la lógica de backend reside en el archivo `actions.ts`.
+Este proyecto utiliza **Next.js Server Actions** para gestionar la base de datos de forma segura. A diferencia de la propuesta la lógica de backend reside en el archivo `actions.ts`. Ya no tenemos las rutas tradicionales como POST /api/auth/register en cambio se hace ahora como siguen: 
 
 ### Funciones de Usuario (Autenticación)
 * `registerUser`: Procesa el registro de nuevos usuarios y encripta la contraseña con Bcrypt.
@@ -52,3 +52,4 @@ Este proyecto utiliza **Next.js Server Actions** para gestionar la base de datos
   
 ## Pruebas
 El video de las pruebas está en la ruta : img/pruebas_generadorPreguntas.mp4
+El video demostracion de uso con demostración de la base de datos: img/demostracionUso_generadorPregutas.mp4
