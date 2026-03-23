@@ -44,3 +44,7 @@ En el formulario de crear preguntas (/preguntas/new), tienes campos para topic (
 - El Prompt Interno: Tu código le pide a la API algo como: "Genera una pregunta de opción múltiple sobre [Tema] con dificultad [Dificultad]. Devuelve la respuesta en formato JSON con la pregunta, 4 opciones y la respuesta correcta".
 
 - Base de Datos: Recibes ese JSON de la API y lo guardas automáticamente en tu base de datos usando Prisma ORM.
+
+
+## Pruebas
+El video de las pruebas está en la ruta : img/pruebas_generadorPreguntas.mp4
