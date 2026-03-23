@@ -1,5 +1,13 @@
 # Generador_de_examenes
 
+Grupo 602-B
+Integrantes del equipo: 
+- Leonardo Baurtista Cruz
+- Elvia Marlen Hernández García
+
+
+
+
 ## 1.- Estructura del proyecto
 
 Frontend: React.js con Tailwind CSS (para un diseño rápido y moderno).
@@ -86,22 +94,27 @@ POST /api/scores: Registrar un nuevo resultado al terminar un test.
 
 ## 5.- Estructura del Proyecto 
 ```bash
-/
-├── backend/
-│   ├── prisma/
-│   │   └── schema.prisma    # Definición de PostgreSQL (Tablas y Relaciones)
-│   ├── src/
-│   │   ├── controllers/     # Lógica de Gemini y CRUD
-│   │   ├── routes/
-│   │   └── index.ts
-│   └── .env                 # API_KEY de Google Gemini
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/           # Login, Dashboard, Quiz
-│   │   └── api/             # Axios/Fetch a nuestra API
-└── propuesta/
-    ├── README.md            # Explicación detallada
+/GENERADOR_DE_EXAMENES
+├── app/                     # Frontend y Backend integrados (Next.js App Router)
+│   ├── examenes/            # Vistas para contestar los cuestionarios dinámicos
+│   ├── preguntas/           # Vistas para el CRUD y generación de preguntas
+│   ├── scores/              # Tableros y visualización de puntajes
+│   ├── usuarios/            # Vistas de registro y lógica de servidor (actions.ts)
+│   ├── globals.css          # Estilos globales (Tailwind CSS)
+│   ├── layout.tsx           # Layout principal de la aplicación
+│   └── page.tsx             # Página de inicio (Login/Dashboard)
+├── img/                     # Recursos gráficos para la documentación
+├── lib/                     
+│   └── prisma.ts            # Instancia global y singleton de Prisma Client
+├── prisma/                  # ORM y Base de Datos
+│   ├── migrations/          # Historial de migraciones SQL (PostgreSQL)
+│   ├── schema.prisma        # Definición oficial del modelo de la base de datos
+├── propuesta/               # Archivos entregables de la propuesta del proyecto
+│   └── schema.prisma        
+├── public/                  # Archivos estáticos accesibles públicamente
+├── next.config.ts           # Configuración del framework Next.js
+├── package.json             # Dependencias del proyecto (npm)
+└── README.md                # Documentación principal del repositorio
 
 ```
 

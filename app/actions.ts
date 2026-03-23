@@ -146,7 +146,13 @@ export async function createGeneratedQuestion(formData: FormData) {
     const difficulty = formData.get("difficulty") as string || "Medio";
 
     // 1. Configuramos el modelo de Gemini (usamos flash porque es rápido y excelente para texto)
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    // const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const model = genAI.getGenerativeModel({ 
+        model: "gemini-2.5-flash",
+        generationConfig: {
+            responseMimeType: "application/json", // ¡ESTA ES LA MAGIA!
+        }
+    });
 
     // 2. Creamos un "prompt" muy estricto para que Gemini nos devuelva exactamente lo que Prisma necesita
     const prompt = `
