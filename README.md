@@ -53,3 +53,4 @@ Este proyecto utiliza **Next.js Server Actions** para gestionar la base de datos
 ## Pruebas
 El video de las pruebas está en la ruta : img/pruebas_generadorPreguntas.mp4
 El video demostracion de uso con demostración de la base de datos: img/demostracionUso_generadorPregutas.mp4
+O en el enlace: https://drive.google.com/drive/folders/1W5o26A-elUxttCtYUA5mgw83Pczk3ISJ?usp=sharing
