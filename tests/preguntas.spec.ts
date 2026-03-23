@@ -31,8 +31,6 @@ test.describe('Gestión de Preguntas (CRUD)', () => {
       // Guardamos los cambios
       await page.click('button:has-text("Guardar Cambios")');
 
-      // Aquí podrías validar que redirige de vuelta a la lista o muestra un mensaje de éxito,
-      // dependiendo de cómo esté configurado tu Server Action 'updateQuestion'
     } else {
       console.log('No hay preguntas en la base de datos para probar la edición.');
     }

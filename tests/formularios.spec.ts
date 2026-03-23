@@ -14,11 +14,9 @@ test.describe('Validaciones de Formularios', () => {
     // Intentamos enviar
     await btnGenerar.click();
 
-    // Como tiene el atributo "required", el formulario NO debe enviarse.
-    // Lo comprobamos verificando que el botón NO cambió a "Generando con IA..."
     await expect(btnGenerar).toHaveText(/Generar Pregunta Mágicamente/i);
     
-    // Y verificamos que la URL sigue siendo la misma (no hubo redirección)
+    // Y verificamos que la URL sigue siendo la misma 
     await expect(page).toHaveURL(/.*\/preguntas\/new/);
   });
 
