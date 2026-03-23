@@ -66,7 +66,6 @@ test.describe('Flujo de Autenticación (Login y Registro)', () => {
 
     await page.click('button:has-text("Registrarse")');
 
-    // Asumiendo que tu Server Action redirige al login o al dashboard al terminar:
     // Aquí verificamos que no se haya quedado estancado mostrando el formulario
     await expect(page.locator('button:has-text("Creando cuenta...")')).toBeHidden();
   });
@@ -74,32 +73,26 @@ test.describe('Flujo de Autenticación (Login y Registro)', () => {
   test('Debería iniciar sesión y redirigir al Dashboard', async ({ page }) => {
     await page.goto('/usuarios');
 
-    // 1️⃣ ASEGÚRATE de poner un correo y contraseña que sepas que SÍ
-    // existen actualmente en tu base de datos local (puedes revisarlo en Prisma Studio)
     await page.fill('input[name="email"]', '15ghrosita@gmail.com'); 
     await page.fill('input[name="password"]', '1q2w3e');
 
     await page.click('button:has-text("Sign In")');
 
-    // 2️⃣ TRUCO DE DEPURACIÓN: Vamos a revisar si tu UI muestra el mensaje de error rojo
-    // Buscamos el contenedor rojo que tienes en app/usuarios/page.tsx
     const errorBanner = page.locator('.bg-red-50.text-red-700');
     
-    // Le damos 3 segundos para ver si aparece el error de credenciales
+
     try {
       await expect(errorBanner).toBeVisible({ timeout: 3000 });
       const textoError = await errorBanner.textContent();
-      // Si entra aquí, significa que las credenciales estaban mal. Lanzamos un error claro:
+    
       throw new Error(`❌ El inicio de sesión falló. La aplicación mostró este mensaje: "${textoError?.trim()}"`);
     } catch (e) {
       if (e instanceof Error && e.message.includes("El inicio de sesión falló")) {
-        throw e; // Relanzamos nuestro error personalizado
+        throw e; 
       }
-      // Si no apareció el banner de error, todo va bien, continuamos...
+
     }
 
-    // 3️⃣ Aumentamos un poco el tiempo de espera a 10 segundos (10000ms) 
-    // por si tu base de datos local o la creación de la cookie tarda un poco más.
     await expect(page).toHaveURL('http://localhost:3000/', { timeout: 10000 });
 });
 
